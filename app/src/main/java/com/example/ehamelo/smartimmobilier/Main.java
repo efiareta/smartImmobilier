@@ -3,46 +3,44 @@ package com.example.ehamelo.smartimmobilier;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ehamelo.smartimmobilier.entite.Son;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
-public class Main extends Activity implements View.OnClickListener{
+public class Main extends Activity implements View.OnClickListener {
 
-    Button rec;
-    Button stop;
-    Button play;
-    Son test;
+    /*map controller */
+    MapManager mapController;
+    Button ajoutFiche;
+    Button upload;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        rec=(Button)findViewById(R.id.rec);
-        stop= (Button)findViewById(R.id.stop);
-        play= (Button)findViewById(R.id.play);
+
+        ajoutFiche=(Button)findViewById(R.id.ajoutFiche);
 
 
-        rec.setOnClickListener(this);
-        stop.setOnClickListener(this);
-        play.setOnClickListener(this);
+        ajoutFiche.setOnClickListener(this);
 
-
-        this.getDir("son",0);
-        Context context =this.getApplicationContext();
-        test=new Son(context,"mic1",this.getDir("son",0).toString()+"/son1.3gp");
-
-        Toast.makeText(this,this.getDir("son",0).toString(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"", Toast.LENGTH_LONG).show();
     }
 
 
@@ -67,26 +65,38 @@ public class Main extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        if(v.getId()==R.id.rec){
+        if(v.getId()==R.id.ajoutFiche){
+            Intent i = new Intent(getApplicationContext(), FormActivity.class);
+            startActivity(i);
+        }
+
+    }
+
+
+
+    /*
+    * if(v.getId()==R.id.rec){
             try {
-                test.recordSon();
+                descVocale.recordSon();
                 Toast.makeText(this,"start", Toast.LENGTH_LONG).show();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
         else if(v.getId()==R.id.play){
-            try {
-                test.play();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
 
+                //descVocale.play();
+                Intent i = new Intent(getApplicationContext(), FormActivity.class);
+                startActivity(i);
         }
+
         else{
-            test.stop();
+            descVocale.stop();
             Toast.makeText(this,"stop", Toast.LENGTH_LONG).show();
         }
+        this.getDir("son",0);
+        Context context =this.getApplicationContext();
+        descVocale=new Son(context,"mic1",this.getDir("son",0).toString()+"/son1.3gp");
 
-    }
+    * */
 }

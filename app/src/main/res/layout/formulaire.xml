@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:weightSum="1">
+    >
 
     <TextView
         android:layout_width="match_parent"
@@ -33,12 +33,54 @@
         />
 
 
-    <fragment
-        android:layout_width="fill_parent"
-        android:layout_height="150dp"
-        android:name="com.google.android.gms.maps.MapFragment"
-        android:id="@+id/fragment"
-        android:layout_weight="0.72" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="adresse"
+        android:id="@+id/adresseLabel"
+
+         />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/adresse"
+        android:layout_marginBottom="15dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="description vocal"
+        android:id="@+id/descAudioLabel" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="url"
+            android:id="@+id/urlImage"
+            android:layout_weight="0.97" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="upload"
+            android:id="@+id/upload" />
+    </LinearLayout>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="rec"
+        android:id="@+id/rec"
+        />
 
     <Button
         android:layout_width="fill_parent"
@@ -46,7 +88,6 @@
         android:text="valider"
         android:id="@+id/valider"
     />
-
 
 
 </LinearLayout>
